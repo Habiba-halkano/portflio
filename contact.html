@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Contact Me</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .contact-section {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .contact-section h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .contact-section .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section form label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .contact-section form input,
+        .contact-section form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .contact-section form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-section form button:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-section a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 10px;
+        }
+
+        .footer h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer a {
+            color: #ddd;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer .row p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/">About</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+    </nav>
+</header>
+
+<section class="contact-section">
+    <h1>Contact Me</h1>
+    <div class="container">
+        <form method="post" id="simpleForm" onsubmit="return handleSubmit(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message1" name="message" placeholder="Your Message" rows="5" required></textarea>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="message"></div>
+        <p><a href="index.html">Go back to the home page</a></p>
+    </div>
+</section>
+
+<div class="footer">
+    <div class="row text-center">
+        <div class="col-md-6">
+            <h4>Follow Me:</h4>
+            <a href="https://github.com/Habiba-halkano">Github</a>
+            <a href="https://www.linkedin.com/in/habiba-halkano">LinkedIn</a>
+            <a href="https://x.com/Habzhalka">Twitter</a>
+            <a href="https://www.facebook.com/habiba-halkano.988">Facebook</a>
+            <a href="https://instagram.com/_h.halka._">Instagram</a>
+        </div>
+        <div class="col-md-6">
+            <p>© 2024 Habiba Halkano. All rights reserved.</p>
+        </div>
+    </div>
+</div>
+<script>
+    function handleSubmit(event) {
+      event.preventDefault();  // Prevents the form from submitting normally
+
+      // Get form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message1').value;
+
+      // Open a new window to display the confirmation message
+      const newWindow = window.open('', '_blank');
+      newWindow.document.write('<h2>Thank you for reaching out!</h2>');
+      newWindow.document.write('<p>Your message has been received.</p>');
+      newWindow.document.write('<p><strong>Name:</strong> ' + name + '</p>');
+      newWindow.document.write('<p><strong>Email:</strong> ' + email + '</p>');
+      newWindow.document.write('<p><strong>Message:</strong> ' + message + '</p>');
+      newWindow.document.close(); // Closes the document stream
+
+      // Clear the form fields
+      document.getElementById('simpleForm').reset();
+    }
+  </script>
+  
+</body>
+</html>
